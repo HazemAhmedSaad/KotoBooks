@@ -1,0 +1,7 @@
+.photo-details{
+    max-width: 100%;
+    border: 1px solid #f65656;
+    border-radius: 15px;
+    height: 250px;
+    padding: 2px;
+}
