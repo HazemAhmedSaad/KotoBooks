@@ -1,0 +1,67 @@
+:root {
+    --main-color: #F65656
+}
+
+.p-fixed {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    box-shadow: -2px 13px 23px -17px rgba(0, 0, 0, 0.5);
+    background-color: #fff;
+}
+
+.nav-icon {
+    margin-left: 25px;
+}
+
+.active {
+    color: var(--main-color) !important;
+}
+
+.brand-b {
+    color: var(--main-color)
+}
+
+.brand-k {
+    color: black
+}
+
+a:hover {
+    color: var(--main-color) !important;
+}
+
+.nav-brand a {
+    font-size: 30px;
+    margin-right: 15px;
+}
+
+@media (min-width: 992px) {
+    .icon-col {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+.h-icon {
+    font-size: 25px;
+    font-weight: 700;
+}
+
+@media (max-width: 991px) {
+    .h-icon {
+        display: none;
+    }
+}
+
+.form-control:focus {
+    border-color: #fa8282 !important;
+    box-shadow: 0 0 0 0.25rem #ffdada !important;
+}
+
+.btn:hover {
+    color: white !important;
+    background-color: var(--main-color) !important;
+}
