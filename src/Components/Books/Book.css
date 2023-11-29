@@ -27,6 +27,7 @@
 
 .photo-card {
     padding-top: 15px;
+    cursor: pointer;
 }
 
 .card-size {
@@ -52,6 +53,7 @@
     display: flex;
     justify-content: space-between;
     /* align-items: center; */
+    margin-top: 15px;
 }
 
 .save {

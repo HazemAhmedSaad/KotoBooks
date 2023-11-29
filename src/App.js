@@ -4,9 +4,10 @@ import Home from "./Components/Home/Home";
 import Header from "./Components/Header/Header";
 import Login from "./Components/Login/Form";
 import Books from "./Components/Books/Book";
+import BookDetails from "./Components/BookDetails/BookDetails";
 import Author from "./Components/Authors/Authors";
 import Search from "./Components/Search/SearchPage";
-function App() {
+  function App() {
   return (
     <div className="App">
       <Header />
@@ -14,6 +15,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/books" element={<Books />} />
+          <Route path="/book-detailes/:id" element={<BookDetails />} />
           <Route path="/author" element={<Author />} />
           <Route path="/login" element={<Login />} />
           <Route path="/search/:qeuryName" element={<Search />} />

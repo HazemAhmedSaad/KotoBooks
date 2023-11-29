@@ -94,7 +94,7 @@ function NavScrollExample() {
             />
             <Link
               className="btn btn-outline-danger"
-              to={`./search/${searchValue}`}
+              to={`/search/${searchValue}`}
             >
               Search
             </Link>

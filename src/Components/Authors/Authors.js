@@ -4,6 +4,7 @@ import "./Authors.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { PiBooksThin } from "react-icons/pi";
+import { Link } from "react-router-dom";
 
 function BasicExample() {
   const [allBooks, setAllBooks] = useState([]);
@@ -27,14 +28,16 @@ function BasicExample() {
           className="card-author col-lg-3 col-md-4 col-sm-6 mx-auto"
           style={{ width: "18rem" }}
         >
-          <Card.Img className="athour-photo" variant="top" src={User} />
-          <Card.Body>
-            <Card.Title className="author-title">{book.authors}</Card.Title>
-            <Card.Text className="book-style">
-              Book {Math.floor(Math.random() * 10) + 1}
-              <PiBooksThin className="icon-book"/>
-            </Card.Text>
-          </Card.Body>
+          <Link className="link-dicor" to={`/search/${book.authors}`}>
+            <Card.Img className="athour-photo" variant="top" src={User} />
+            <Card.Body>
+              <Card.Title className="author-title">{book.authors}</Card.Title>
+              <Card.Text className="book-style">
+                Book {Math.floor(Math.random() * 10) + 1}
+                <PiBooksThin className="icon-book" />
+              </Card.Text>
+            </Card.Body>
+          </Link>
         </Card>
       ))}
     </div>

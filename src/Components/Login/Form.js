@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import { Link } from "react-router-dom";
 // import { NavLink } from "react-router-dom";
 
 function BasicExample() {
@@ -91,8 +92,11 @@ function BasicExample() {
             type="submit"
             className="w-100"
             style={{ backgroundColor: "#222", borderColor: "#F65656" }}
+            
+        
           >
-            Login
+            <Link className="w-100" to={'/'}>Login</Link>
+            
           </Button>
         </Form>
       </div>

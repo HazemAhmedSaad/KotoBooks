@@ -4,6 +4,7 @@ import { IoBookmarkOutline } from "react-icons/io5";
 import "./Book.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 // import { Link } from "react-router-dom";
 
 function BasicExample() {
@@ -24,7 +25,8 @@ function BasicExample() {
         console.log(response.data);
         SetAllBooks(response.data);
         seeNumPage(response.data.length);
-      }).catch((error) => console.error('Error fetching data:', error));;
+      })
+      .catch((error) => console.error("Error fetching data:", error));
   }, [page]);
   const showPev = () => {
     let currentPage = page;
@@ -45,18 +47,25 @@ function BasicExample() {
       {allBooks.map((book) => (
         <div className="col-lg-3 col-md-4 col-sm-6 mx-auto d-flex justify-content-center">
           <Card className="card-book">
-            <div className="photo-card">
-              <Card.Img className="photo" variant="top" src={book.image_url} />
-            </div>
+            <Link to={`/book-detailes/${book.id}`}>
+              <div className="photo-card">
+                <Card.Img
+                  className="photo"
+                  variant="top"
+                  src={book.image_url}
+                />
+              </div>
+            </Link>
             <Card.Body className="cord-size">
               <Card.Title className="book-name" title={book.title}>
                 {book.title}
               </Card.Title>
-              <Card.Text className="author-name">{book.authors}</Card.Text>
+              <Link className="link-dicor" to={`/search/${book.authors}`}>
+                <Card.Text className="author-name">{book.authors}</Card.Text>
+              </Link>
               <div className="sav-rat">
                 <p className="rate">{book.rating}</p>
                 <IoBookmarkOutline className="save" />
-                {/* <Link to={`/books?_page=${page}&_limit=${limit}`}>go</Link> */}
               </div>
             </Card.Body>
           </Card>

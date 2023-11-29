@@ -3,10 +3,10 @@ import { IoBookmarkOutline } from "react-icons/io5";
 import "../Books/Book.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 function BasicExample() {
-  const { qeuryName } = useParams("Twilight");
+  const { qeuryName } = useParams("");
   const [allBooks, SetAllBooks] = useState([]);
   const [numPage, seeNumPage] = useState(1);
   const [page, setPage] = useState(1);
@@ -47,13 +47,24 @@ function BasicExample() {
     <div className="row g-5 mx-auto  mb-5 small-v">
       {allBooks.map((book) => (
         <div className="col-lg-3 col-md-4 col-sm-6 mx-auto d-flex justify-content-center">
-          <Card>
-            <div className="photo-card">
-              <Card.Img className="photo" variant="top" src={book.image_url} />
-            </div>
-            <Card.Body>
-              <Card.Title title={book.title}>{book.title}</Card.Title>
-              <Card.Text>{book.authors}</Card.Text>
+          <Card className="card-book">
+            <Link to={`/book-detailes/${book.id}`}>
+              <div className="photo-card">
+                <Card.Img
+                  className="photo"
+                  variant="top"
+                  src={book.image_url}
+                />
+              </div>
+            </Link>
+
+            <Card.Body className="cord-size">
+              <Card.Title className="book-name" title={book.title}>
+                {book.title}
+              </Card.Title>
+              <Link className="link-dicor" to={`/search/${book.authors}`}>
+                <Card.Text className="author-name">{book.authors}</Card.Text>
+              </Link>
               <div className="sav-rat">
                 <p className="rate">{book.rating}</p>
                 <IoBookmarkOutline className="save" />
