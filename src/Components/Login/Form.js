@@ -1,10 +1,12 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { Link } from "react-router-dom";
 // import { NavLink } from "react-router-dom";
-
+import "./Form.css";
 function BasicExample() {
+  const [flage1, setFlage1] = useState(0);
+  const [flage2, setFlage2] = useState(0);
   const [data, setData] = useState({
     userEmail: "",
     userPass: "",
@@ -19,26 +21,34 @@ function BasicExample() {
     setData({ ...data, [event.target.name]: event.target.value });
     if (event.target.name === "userEmail") {
       if (!rgxEmail.test(event.target.value) && event.target.value !== "") {
+        setFlage1(0);
         setErrorData({ ...errorData, emailError: "Please enter valid email" });
       } else if (event.target.value === "") {
+        setFlage1(0);
+
         setErrorData({ ...errorData, emailError: "Email is requared" });
       } else {
+        setFlage1(1);
         setErrorData({ ...errorData, emailError: "" });
       }
     }
     if (event.target.name === "userPass") {
       if (!rgxPass.test(event.target.value) && event.target.value !== "") {
+        setFlage2(0);
         setErrorData({
           ...errorData,
           passError: "Enter 8 characters at least 1 letter and 1 number",
         });
       } else if (event.target.value === "") {
+        setFlage2(0);
         setErrorData({ ...errorData, passError: "Password is requared" });
       } else {
+        setFlage2(1);
         setErrorData({ ...errorData, passError: "" });
       }
     }
   };
+  useEffect(()=>{},[flage1,flage2])
   return (
     <div style={{ minHeight: "650px" }}>
       <div
@@ -90,13 +100,13 @@ function BasicExample() {
           <Button
             variant="primary"
             type="submit"
-            className="w-100"
+            className="w-100 btn-f"
             style={{ backgroundColor: "#222", borderColor: "#F65656" }}
-            
-        
+            disabled={(flage1 && flage2)?false:true}
           >
-            <Link className="w-100" to={'/'}>Login</Link>
-            
+            <Link className="link-btn" to={"/"}>
+              <div>Login</div>
+            </Link>
           </Button>
         </Form>
       </div>

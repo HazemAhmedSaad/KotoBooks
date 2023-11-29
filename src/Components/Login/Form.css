@@ -1,0 +1,14 @@
+.link-btn {
+    text-decoration: none;
+    color: white;
+}
+.link-btn div{
+    padding: 5px;
+
+}
+.link-btn:hover {
+    color: white !important;
+}
+.btn-f{
+    padding: 0 !important;
+}
