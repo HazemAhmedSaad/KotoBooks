@@ -6,6 +6,7 @@ import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { changeCounter } from "../Store/Actions";
 import { IoBookmark } from "react-icons/io5";
+import { IoBookmarkOutline } from "react-icons/io5";
 
 const BookDetails = () => {
   const { id } = useParams();
@@ -72,7 +73,7 @@ const BookDetails = () => {
               </p>
             </li>
           </ul>
-          <button
+          <button className="btn save-btn "
             onClick={(change) => {
               let found = false;
               let deletitem;
@@ -93,7 +94,11 @@ const BookDetails = () => {
             }}
           >
             {favorites.some((item) => item.id === book.id) ? "Saved" : "Save"}
-            {/* <IoBookmark className="save " /> */}
+            {favorites.some((item) => item.id === book.id) ? (
+              <IoBookmark className="save saved" />
+            ) : (
+              <IoBookmarkOutline className="save" />
+            )}
           </button>
         </div>
       </div>

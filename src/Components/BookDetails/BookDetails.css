@@ -10,7 +10,6 @@
     margin-bottom: 0.5rem;
     font-size: 20px;
     font-weight: 800;
-    padding-top: 10px;
 }
 
 .p-info {
@@ -58,19 +57,39 @@
     /* position: relative; */
     margin-bottom: 0;
 }
-.description{
+
+.description {
     padding: 0 40px;
 }
-@media (max-width:768px ) {
-    .book-info{
+
+@media (max-width:768px) {
+    .book-info {
         text-align: center;
     }
-    .book-table-info{
+
+    .book-table-info {
         width: 70%;
         margin: 0 auto;
     }
-    .book-table-info li{
+
+    .book-table-info li {
         margin: 0 auto;
     }
-    
+
+}
+
+.save-btn {
+    background-color: #222 !important;
+    color: white !important;
+    border-radius: 30px !important;
+    width: 200px;
+    display: flex !important;
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: 23px;
+
+}
+
+.save-btn:hover {
+    background-color: #333333 !important;
 }

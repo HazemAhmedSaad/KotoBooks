@@ -1,22 +1,21 @@
-import Button from "react-bootstrap/Button";
-import Card from "react-bootstrap/Card";
+import Card from 'react-bootstrap/Card';
 
-function BasicExample() {
+function ImgOverlayExample() {
   return (
-    <>
-      <Card style={{ width: "18rem" }}>
-        <Card.Img variant="top" src="holder.js/100px180" />
-        <Card.Body>
-          <Card.Title>Card Title</Card.Title>
-          <Card.Text>
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
-          </Card.Text>
-          <Button variant="primary">Go somewhere</Button>
-        </Card.Body>
-      </Card>
-    </>
+    <div>
+    <Card className="bg-dark text-white">
+      <Card.Img src="holder.js/100px270" alt="Card image" />
+      <Card.ImgOverlay>
+        <Card.Title>Card title</Card.Title>
+        <Card.Text>
+          This is a wider card with supporting text below as a natural lead-in
+          to additional content. This content is a little bit longer.
+        </Card.Text>
+        <Card.Text>Last updated 3 mins ago</Card.Text>
+      </Card.ImgOverlay>
+    </Card>
+    </div>
   );
 }
 
-export default BasicExample;
+export default ImgOverlayExample;

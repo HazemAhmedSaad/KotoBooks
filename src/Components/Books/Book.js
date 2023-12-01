@@ -1,4 +1,3 @@
-// import Button from 'react-bootstrap/Button';
 import Card from "react-bootstrap/Card";
 import { IoBookmarkOutline } from "react-icons/io5";
 import { IoBookmark } from "react-icons/io5";
@@ -7,15 +6,12 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-// import { Link } from "react-router-dom";
-// import { Button } from "react-bootstrap/Button";
 import { changeFavorites } from "../Store/Actions";
 import { changeCounter } from "../Store/Actions";
 function BasicExample() {
   const [allBooks, SetAllBooks] = useState([]);
   const [numPage, seeNumPage] = useState(1);
   const [page, setPage] = useState(1);
-  // const [limit, setLimit] = useState(12);
   const myDispatcher = useDispatch();
   const favorites = useSelector((state) => state.favorites);
   const counter = useSelector((state) => state.counter);
@@ -101,7 +97,6 @@ function BasicExample() {
                     }
                   }}
                 >
-                  {/* {<IoBookmarkOutline className="save" />} */}
                   {favorites.some((item) => item.id === book.id) ? (
                     <IoBookmark className="save saved" />
                   ) : (
@@ -118,7 +113,7 @@ function BasicExample() {
           <ul className="pagination justify-content-center">
             <li className="page-item" style={{ width: "150px" }}>
               <button
-                className="btn  text-white btn-bord"
+                className="btn text-white btn-bord"
                 style={{ width: "150px", backgroundColor: "#222" }}
                 onClick={showPev}
                 disabled={page <= 1 ? true : false}

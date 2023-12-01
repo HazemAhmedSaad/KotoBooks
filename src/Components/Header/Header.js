@@ -14,8 +14,7 @@ import { Link, NavLink } from "react-router-dom";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 function NavScrollExample() {
-  const favorites = useSelector((state) => state.favorites);
-  const counter = useSelector((state) => state.counter);
+    const counter = useSelector((state) => state.counter);
   const [searchValue, setSearchValue] = useState("");
   const handleChange = (e) => {
     setSearchValue(e.target.value);
@@ -86,7 +85,7 @@ function NavScrollExample() {
               Link
             </Nav.Link> */}
           </Nav>
-          <Form className="d-flex">
+          <Form className="d-flex search-input">
             <Form.Control
               type="search"
               placeholder="Search"
