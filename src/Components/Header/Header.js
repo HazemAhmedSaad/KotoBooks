@@ -12,7 +12,10 @@ import { AiOutlineLogin } from "react-icons/ai";
 import "./Header.css";
 import { Link, NavLink } from "react-router-dom";
 import { useState } from "react";
+import { useSelector } from "react-redux";
 function NavScrollExample() {
+  const favorites = useSelector((state) => state.favorites);
+  const counter = useSelector((state) => state.counter);
   const [searchValue, setSearchValue] = useState("");
   const handleChange = (e) => {
     setSearchValue(e.target.value);
@@ -51,10 +54,10 @@ function NavScrollExample() {
                 Books
               </div>
             </NavLink>
-            <NavLink className={"nav-link nav-icon"} to={"/favorite"}>
+            <NavLink className={"nav-link nav-icon"} to={"/favorite-books"}>
               <div className="icon-col">
                 <TbAward className="h-icon" />
-                Favorite
+                {`Favorite (${counter})`}
               </div>
             </NavLink>
             <NavLink className={"nav-link nav-icon"} to={"/author"}>

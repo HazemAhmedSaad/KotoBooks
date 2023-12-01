@@ -1,17 +1,26 @@
 // import Button from 'react-bootstrap/Button';
 import Card from "react-bootstrap/Card";
 import { IoBookmarkOutline } from "react-icons/io5";
+import { IoBookmark } from "react-icons/io5";
 import "./Book.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 // import { Link } from "react-router-dom";
-
+// import { Button } from "react-bootstrap/Button";
+import { changeFavorites } from "../Store/Actions";
+import { changeCounter } from "../Store/Actions";
 function BasicExample() {
   const [allBooks, SetAllBooks] = useState([]);
   const [numPage, seeNumPage] = useState(1);
   const [page, setPage] = useState(1);
   // const [limit, setLimit] = useState(12);
+  const myDispatcher = useDispatch();
+  const favorites = useSelector((state) => state.favorites);
+  const counter = useSelector((state) => state.counter);
+  console.log(favorites);
+  // console.log(counter);
 
   useEffect(() => {
     axios
@@ -60,12 +69,45 @@ function BasicExample() {
               <Card.Title className="book-name" title={book.title}>
                 {book.title}
               </Card.Title>
-              <Link className="link-dicor" to={`/search/${book.authors}`}>
+              <Link
+                className="link-dicor"
+                title={book.authors}
+                to={`/search/${book.authors}`}
+              >
                 <Card.Text className="author-name">{book.authors}</Card.Text>
               </Link>
               <div className="sav-rat">
                 <p className="rate">{book.rating}</p>
-                <IoBookmarkOutline className="save" />
+                <button
+                  className="btn-icon"
+                  onClick={(change) => {
+                    let found = false;
+                    let deletitem;
+                    for (const key in favorites) {
+                      if (book.id === favorites[key].id) {
+                        found = true;
+                        deletitem = key;
+                      }
+                    }
+                    if (!found) {
+                      // let favBook = { ...book, save };
+                      // myDispatcher(changeFavorites([...favorites, favBook]));
+                      favorites.push(book);
+
+                      myDispatcher(changeCounter(counter + 1));
+                    } else {
+                      delete favorites[deletitem];
+                      myDispatcher(changeCounter(counter - 1));
+                    }
+                  }}
+                >
+                  {/* {<IoBookmarkOutline className="save" />} */}
+                  {favorites.some((item) => item.id === book.id) ? (
+                    <IoBookmark className="save saved" />
+                  ) : (
+                    <IoBookmarkOutline className="save" />
+                  )}
+                </button>
               </div>
             </Card.Body>
           </Card>

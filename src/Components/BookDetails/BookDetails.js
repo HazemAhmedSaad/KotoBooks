@@ -3,10 +3,18 @@ import "./BookDetails.css";
 import { useState } from "react";
 import { useEffect } from "react";
 import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
+import { changeCounter } from "../Store/Actions";
+import { IoBookmark } from "react-icons/io5";
+
 const BookDetails = () => {
   const { id } = useParams();
+  const favorites = useSelector((state) => state.favorites);
+  const myDispatcher = useDispatch();
+  const counter = useSelector((state) => state.counter);
   console.log(id);
   const [book, setBook] = useState([]);
+
   useEffect(() => {
     axios
       .get(`https://example-data.draftbit.com/books/${id}`)
@@ -17,6 +25,7 @@ const BookDetails = () => {
         console.log(error);
       });
   }, [id]);
+
   return (
     <div>
       <div className="row mx-auto my-5 pt-4">
@@ -25,7 +34,9 @@ const BookDetails = () => {
         </div>
         <div className="col-lg-9 col-md-8 col-sm-10 mx-auto ps-4 book-info">
           <h2 className="head-title">{book.title}</h2>
-          <p className="p-info"><Link  to={`/search/${book.authors}`}>{book.authors}</Link></p>
+          <p className="p-info">
+            <Link to={`/search/${book.authors}`}>{book.authors}</Link>
+          </p>
           <p className="p-info">{book.genre_list}</p>
           <ul className="nav book-table-info align-items-center">
             <li>
@@ -61,6 +72,29 @@ const BookDetails = () => {
               </p>
             </li>
           </ul>
+          <button
+            onClick={(change) => {
+              let found = false;
+              let deletitem;
+              for (const key in favorites) {
+                if (book.id === favorites[key].id) {
+                  found = true;
+                  deletitem = key;
+                }
+              }
+              if (!found) {
+                favorites.push(book);
+
+                myDispatcher(changeCounter(counter + 1));
+              } else {
+                delete favorites[deletitem];
+                myDispatcher(changeCounter(counter - 1));
+              }
+            }}
+          >
+            {favorites.some((item) => item.id === book.id) ? "Saved" : "Save"}
+            {/* <IoBookmark className="save " /> */}
+          </button>
         </div>
       </div>
 
@@ -71,6 +105,7 @@ const BookDetails = () => {
           </p>
         </div>
       </div>
+      <div></div>
     </div>
   );
 };

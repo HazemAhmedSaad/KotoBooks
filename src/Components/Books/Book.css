@@ -21,8 +21,6 @@
     width: 150px !important;
     border-radius: 10px 10px 0 0 !important;
     height: 200px;
-
-
 }
 
 .photo-card {
@@ -46,19 +44,27 @@
 
 .author-name {
     color: #F65656;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .sav-rat {
-    padding: 0 10px;
+    padding: 5px 7px;
     display: flex;
     justify-content: space-between;
     /* align-items: center; */
-    margin-top: 15px;
+    padding-top: 25px;
 }
 
 .save {
-    font-size: 30px;
+    font-size: 35px;
     cursor: pointer;
+}
+
+.saved {
+    color: #F65656;
 }
 
 .rate {
@@ -73,6 +79,7 @@
     font-weight: 600;
     font-size: 15px;
     border: 2px solid #F65656;
+    margin: 0;
 }
 
 /* @media (max-width:575){
@@ -89,4 +96,12 @@ li .btn-bord {
 
 li {
     margin: 0 20px;
+}
+
+.btn-icon {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    height: 0;
 }

@@ -8,19 +8,24 @@
 
 .head-title {
     margin-bottom: 0.5rem;
-    font-size: 17px;
-    font-weight: 700;
+    font-size: 20px;
+    font-weight: 800;
     padding-top: 10px;
 }
 
 .p-info {
     margin-bottom: 0.5rem;
     color: #222;
+    font-size: 16px;
+    font-weight: 500;
+
 
 }
 
 .p-info a {
     color: #F65656;
+    font-weight: 700;
+    font-size: 18px;
 
 }
 
@@ -47,7 +52,7 @@
 .book-table-info li p {
     /* vertical-align: middle; */
     /* border: 0; */
-    font-size: 13px;
+    font-size: 14px;
     text-align: center;
     font-weight: 600;
     /* position: relative; */
