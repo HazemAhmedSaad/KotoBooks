@@ -50,7 +50,7 @@ function BasicExample() {
   };
   useEffect(()=>{},[flage1,flage2])
   return (
-    <div style={{ minHeight: "650px" }}>
+    <div className="app-style">
       <div
         className="border mx-auto"
         style={{

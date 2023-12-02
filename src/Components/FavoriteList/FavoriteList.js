@@ -14,49 +14,55 @@ function BasicExample() {
   console.log(counter);
 
   return (
-    <div className="row g-5 mx-auto  mb-5 small-v">
-      {favorites.map((book) => (
-        <div className="col-lg-3 col-md-4 col-sm-6 mx-auto d-flex justify-content-center">
-          <Card className="card-book">
-            <Link to={`/book-detailes/${book.id}`}>
-              <div className="photo-card">
-                <Card.Img
-                  className="photo"
-                  variant="top"
-                  src={book.image_url}
-                />
-              </div>
-            </Link>
-            <Card.Body className="cord-size">
-              <Card.Title className="book-name" title={book.title}>
-                {book.title}
-              </Card.Title>
-              <Link className="link-dicor" title={book.authors} to={`/search/${book.authors}`}>
-                <Card.Text className="author-name">{book.authors}</Card.Text>
+    <div className="app-b-style">
+      <div className="row g-5 mx-auto container my-5 small-v">
+        {favorites.map((book) => (
+          <div className="col-lg-3 col-md-4 col-sm-6 mx-auto d-flex justify-content-center">
+            <Card className="card-book">
+              <Link to={`/book-detailes/${book.id}`}>
+                <div className="photo-card">
+                  <Card.Img
+                    className="photo"
+                    variant="top"
+                    src={book.image_url}
+                  />
+                </div>
               </Link>
-              <div className="sav-rat">
-                <p className="rate">{book.rating}</p>
-                <button
-                  className="btn-icon"
-                  onClick={(change) => {
-                    let deletitem;
-                    for (const key in favorites) {
-                      if (book.id === favorites[key].id) {
-                        deletitem = key;
-                      }
-                    }
-                    // favorites.splice(deletitem, 1);
-                    delete favorites[deletitem];
-                    myDispatcher(changeCounter(counter - 1));
-                  }}
+              <Card.Body className="cord-size">
+                <Card.Title className="book-name" title={book.title}>
+                  {book.title}
+                </Card.Title>
+                <Link
+                  className="link-dicor"
+                  title={book.authors}
+                  to={`/search/${book.authors}`}
                 >
-                  <IoBookmark className="save saved" />
-                </button>
-              </div>
-            </Card.Body>
-          </Card>
-        </div>
-      ))}
+                  <Card.Text className="author-name">{book.authors}</Card.Text>
+                </Link>
+                <div className="sav-rat">
+                  <p className="rate">{book.rating}</p>
+                  <button
+                    className="btn-icon"
+                    onClick={(change) => {
+                      let deletitem;
+                      for (const key in favorites) {
+                        if (book.id === favorites[key].id) {
+                          deletitem = key;
+                        }
+                      }
+                      // favorites.splice(deletitem, 1);
+                      delete favorites[deletitem];
+                      myDispatcher(changeCounter(counter - 1));
+                    }}
+                  >
+                    <IoBookmark className="save saved" />
+                  </button>
+                </div>
+              </Card.Body>
+            </Card>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

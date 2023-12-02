@@ -28,7 +28,7 @@ const BookDetails = () => {
   }, [id]);
 
   return (
-    <div>
+    <div className="container app-style">
       <div className="row mx-auto my-5 pt-4">
         <div className="col-lg-3 col-md-4 col-sm-10 mx-auto text-center pb-4">
           <img className="photo-details" src={book.image_url} alt="book" />
@@ -103,7 +103,7 @@ const BookDetails = () => {
         </div>
       </div>
 
-      <div className="description">
+      <div className="description pb-5">
         <div>
           <p>
             <strong>{book.description}</strong>

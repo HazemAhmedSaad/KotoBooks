@@ -22,7 +22,7 @@ function BasicExample() {
       .catch((error) => console.error("Error fetching data:", error));
   }, []);
   return (
-    <div className="row card=container mx-auto">
+    <div className="app-style row container mx-auto mb-5">
       {allBooks.map((book) => (
         <Card
           className="card-author col-lg-3 col-md-4 col-sm-6 mx-auto"

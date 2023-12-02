@@ -1,3 +1,7 @@
+.app-style{
+    margin-top: 10em !important;
+    min-height: 525px
+}
 .photo-details {
     max-width: 100%;
     border: 1px solid #f65656;

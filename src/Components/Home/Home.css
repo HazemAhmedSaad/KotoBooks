@@ -1,9 +1,9 @@
-.card-home {
+/* .card-home {
     top: 0;
     position: absolute !important;
     width: 100%;
     left: 0;
-}
+} */
 
 .home {
     height: 800px;
@@ -29,4 +29,26 @@
     opacity: 1;
     box-shadow: none !important;
     border: none;
+}
+
+.catogry {
+    top: 740px;
+    /* position: relative; */
+    margin: 0 !important;
+    padding: 30px;
+}
+
+.cat-card {
+    margin: 60px auto;
+}
+
+/* .cat-card{
+    align-items: center !important;
+    display: flex !important;
+    justify-content: center ;
+} */
+.cat-title {
+    color: #F65656 !important;
+    font-size: 25px !important;
+    font-weight: 700 !important;
 }

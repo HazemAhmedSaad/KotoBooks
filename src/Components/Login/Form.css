@@ -1,13 +1,20 @@
+.app-style {
+    margin-top: 10em !important;
+}
+
 .link-btn {
     color: white;
 }
-.link-btn div{
+
+.link-btn div {
     padding: 5px;
 
 }
+
 .link-btn:hover {
     color: white !important;
 }
-.btn-f{
+
+.btn-f {
     padding: 0 !important;
 }

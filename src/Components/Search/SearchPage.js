@@ -48,7 +48,7 @@ function BasicExample() {
     }
   };
   return (
-    <div className="row g-5 mx-auto  mb-5 small-v">
+    <div className="row g-5 mx-auto container app-b-style  mb-5 small-v">
       {allBooks.map((book) => (
         <div className="col-lg-3 col-md-4 col-sm-6 mx-auto d-flex justify-content-center">
           <Card className="card-book">
