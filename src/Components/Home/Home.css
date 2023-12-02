@@ -1,0 +1,32 @@
+.card-home {
+    top: 0;
+    position: absolute !important;
+    width: 100%;
+    left: 0;
+}
+
+.home {
+    height: 800px;
+}
+
+.botn-form {
+    width: 150px;
+    height: 45px;
+    align-items: center;
+    display: flex !important;
+    justify-content: center;
+    align-content: center;
+}
+
+.inpt-form {
+    border-radius: 0 !important;
+    width: 100% !important;
+    /* background-color:  !important; */
+    opacity: 0.5;
+}
+
+.inpt-form:focus {
+    opacity: 1;
+    box-shadow: none !important;
+    border: none;
+}

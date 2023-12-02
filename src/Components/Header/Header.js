@@ -89,7 +89,7 @@ function NavScrollExample() {
             <Form.Control
               type="search"
               placeholder="Search"
-              className="me-2"
+              className="me-2 head-search"
               aria-label="Search"
               value={searchValue}
               onChange={(e) => handleChange(e)}

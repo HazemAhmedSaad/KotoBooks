@@ -86,7 +86,7 @@
     display: flex !important;
     justify-content: space-evenly;
     align-items: center;
-    font-size: 23px;
+    font-size: 20px !important;
 
 }
 
